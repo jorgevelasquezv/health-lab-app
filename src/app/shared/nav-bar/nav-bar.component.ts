@@ -1,6 +1,8 @@
+import { AuthService } from './../../auth/services/auth.service';
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, computed, HostListener, inject, Signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { AuthStatus } from '../../domain/enums/auth-status.enum';
 
 @Component({
   selector: 'shared-nav-bar',
@@ -11,6 +13,8 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class NavBarComponent {
   private router: Router = inject(Router);
+  private authService: AuthService = inject(AuthService);
+  public isAuthenticated: Signal<boolean> = computed(() => this.authService.authStatus() == AuthStatus.authenticated);
 
   @HostListener('window:scroll', [])
   public onWindowScroll() {

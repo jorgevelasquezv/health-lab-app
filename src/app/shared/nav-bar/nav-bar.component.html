@@ -2,7 +2,7 @@
 <header id="header" class="top-header">
   <nav class="navbar header-nav navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="index.html"
+      <a class="navbar-brand" routerLink="/"
         ><img src="assets/images/logo.png" alt="logo"
       /></a>
       <button
@@ -39,6 +39,7 @@
               >Contacto</a
             >
           </li>
+          @if (isAuthenticated()) {
           <li>
             <a
               class="nav-link"
@@ -76,6 +77,12 @@
           </li>
 
           <li>
+            <a class="nav-link" routerLinkActive="active" (click)="logout()"
+              >Salir</a
+            >
+          </li>
+          }@else {
+          <li>
             <a class="nav-link" routerLink="/login" routerLinkActive="active"
               >Ingresar</a
             >
@@ -85,12 +92,7 @@
               >Registarse</a
             >
           </li>
-
-          <li>
-            <a class="nav-link" routerLinkActive="active" (click)="logout()"
-              >Salir</a
-            >
-          </li>
+          }
         </ul>
       </div>
     </div>
