@@ -1,0 +1,55 @@
+/*------------------------------------------------------------------
+    Appointment
+-------------------------------------------------------------------*/
+
+.appointment-main{
+	padding: 70px 0px;
+	position: relative;
+}
+
+.well-block .well-title h2{
+	font-size: 32px;
+	font-weight: 600;
+	padding-bottom: 20px;
+}
+
+.well-block form .form-group .control-label{
+	font-size: 16px;
+}
+.well-block form .form-group .form-control {
+	min-height: 60px;
+	min-height: 50px;
+	padding: 0px 15px;
+	border-radius: 0;
+	color: #12557f;
+	border: 1px solid #12557f;
+}
+.well-block form .form-group .form-control:focus{
+	box-shadow: none;
+}
+
+.well-block form .form-group button{
+	border-radius: 2px;
+	transition: .2s;
+	letter-spacing: 1px;
+	padding: 10px 18px;
+	background: #ffffff;
+	color: #12557f;
+	display: inline-block;
+	line-height: 24px;
+	cursor: pointer;
+}
+.well-block form .form-group button.new-btn-d.br-2 {
+    border: 2px solid #12557f;
+}
+.well-block form .form-group button.new-btn-d::before {
+    background: rgba(18,85,127,0.2);
+}
+
+.feature-block .feature-title{
+	font-size: 20px;
+}
+
+.well-block form .form-group button:hover{
+	color: #ffffff;
+}

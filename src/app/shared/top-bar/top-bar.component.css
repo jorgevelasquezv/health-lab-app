@@ -1,0 +1,104 @@
+.main-top {
+  background: #12557f;
+}
+.left-top a {
+  color: #ffffff;
+  float: left;
+  font-size: 14px;
+}
+
+.new-btn-d {
+  padding: 12px 30px;
+  font-weight: 400;
+  background: none;
+  color: #ffffff;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  border-radius: 0;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: 9;
+  text-transform: uppercase;
+}
+
+.new-btn-d::before,
+.new-btn-d::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  top: 100%;
+  z-index: -9;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+
+.new-btn-d:hover::before,
+.new-btn-d:hover::after {
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+
+.new-btn-d::before {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.new-btn-d::after {
+  background: #00cb86;
+}
+.new-btn-d:hover::after {
+  -webkit-transition-delay: 0.175s;
+  transition-delay: 0.175s;
+}
+
+.new-btn-d.br-2 {
+  border: 2px solid #ffffff;
+}
+
+.mail-b {
+  float: left;
+}
+.mail-b a {
+  font-size: 14px;
+  color: #ffffff;
+  padding: 12px 30px;
+  border: 2px solid #ffffff;
+}
+.mail-b a:hover {
+  color: #00cb86;
+  border: 2px solid #00cb86;
+}
+
+.right-top {
+  float: right;
+}
+.right-top ul li {
+  float: left;
+}
+.right-top ul li a {
+  font-size: 27px;
+  display: inline-block;
+  color: #ffffff;
+  padding: 0px 20px;
+  border: 2px solid #ffffff;
+}
+.right-top ul li a:hover {
+  background: #00cb86;
+  color: #ffffff;
+}
+
+.wel-nots {
+  float: right;
+  margin-left: 20px;
+}
+.wel-nots p {
+  font-size: 16px;
+  color: #ffffff;
+  padding: 12px 0px;
+  margin: 0px;
+}

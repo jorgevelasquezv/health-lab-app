@@ -1,0 +1,110 @@
+/*------------------------------------------------------------------
+    Contact
+-------------------------------------------------------------------*/
+
+.contact-box {
+  padding: 70px 0px;
+}
+
+.left-contact {
+  margin-top: 60px;
+}
+.left-contact h2 {
+  font-size: 38px;
+  font-weight: 700;
+  padding-bottom: 30px;
+  text-align: center;
+}
+.cont-line {
+  overflow: hidden;
+  margin-bottom: 30px;
+  width: 33.33%;
+  float: left;
+}
+.icon-b {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  font-size: 40px;
+  border: 2px dotted #12557f;
+  margin-right: 10px;
+  color: #00cb86;
+  border-radius: 50%;
+}
+
+.dit-right h4 {
+  font-size: 18px;
+  color: #333333;
+  font-weight: 600;
+  padding-bottom: 0;
+}
+.dit-right {
+  padding-right: 14px;
+}
+.dit-right p {
+  font-size: 16px;
+  margin: 0px;
+}
+.dit-right a {
+  font-size: 16px;
+  color: #333333;
+}
+.dit-right a:hover {
+  color: #00cb86;
+}
+
+.contact-block .form-group .form-control {
+  background: #00cb86;
+  height: 45px;
+  font-size: 16px;
+  border: 0;
+  color: #ffffff;
+  padding: 6px 15px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.contact-block .form-group textarea.form-control {
+  height: 150px;
+  padding-top: 15px;
+}
+
+.submit-button .btn-common {
+  background-color: #00cb86;
+  height: 45px;
+  line-height: 45px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  padding: 0 15px;
+  border: 0;
+  outline: 0;
+  text-transform: uppercase;
+  border-radius: 0px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.submit-button .btn-common:hover {
+  background-color: #528780;
+}
+
+.custom-select {
+  height: 45px;
+  font-size: 16px;
+}
+select.form-control:not([size]):not([multiple]) {
+  height: calc(45px + 2px);
+}
+
+.help-block ul li {
+  color: red;
+}

@@ -1,0 +1,218 @@
+/*------------------------------------------------------------------
+    HEADER
+-------------------------------------------------------------------*/
+
+.main-top {
+  background: #12557f;
+}
+.left-top a {
+  color: #ffffff;
+  float: left;
+  font-size: 14px;
+}
+
+.new-btn-d {
+  padding: 12px 30px;
+  font-weight: 400;
+  background: none;
+  color: #ffffff;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  border-radius: 0;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: 9;
+  text-transform: uppercase;
+}
+
+.new-btn-d::before,
+.new-btn-d::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  top: 100%;
+  z-index: -9;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+
+.new-btn-d:hover::before,
+.new-btn-d:hover::after {
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+
+.new-btn-d::before {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.new-btn-d::after {
+  background: #00cb86;
+}
+.new-btn-d:hover::after {
+  -webkit-transition-delay: 0.175s;
+  transition-delay: 0.175s;
+}
+
+.new-btn-d.br-2 {
+  border: 2px solid #ffffff;
+}
+
+.mail-b {
+  float: left;
+}
+.mail-b a {
+  font-size: 14px;
+  color: #ffffff;
+  padding: 12px 30px;
+  border: 2px solid #ffffff;
+}
+.mail-b a:hover {
+  color: #00cb86;
+  border: 2px solid #00cb86;
+}
+
+.right-top {
+  float: right;
+}
+.right-top ul li {
+  float: left;
+}
+.right-top ul li a {
+  font-size: 27px;
+  display: inline-block;
+  color: #ffffff;
+  padding: 0px 20px;
+  border: 2px solid #ffffff;
+}
+.right-top ul li a:hover {
+  background: #00cb86;
+  color: #ffffff;
+}
+
+.wel-nots {
+  float: right;
+  margin-left: 20px;
+}
+.wel-nots p {
+  font-size: 16px;
+  color: #ffffff;
+  padding: 12px 0px;
+  margin: 0px;
+}
+
+.top-header .navbar {
+  padding: 5px 0px;
+}
+
+.top-header {
+  background: #ffffff;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 20;
+}
+
+.top-header .navbar .navbar-collapse ul li a {
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 10px 15px;
+  position: relative;
+  font-weight: 500;
+}
+
+.top-header .navbar .navbar-collapse ul li a.active {
+  background: #00cb86;
+  color: #ffffff;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -moz-transition: all 0.5s ease-in-out 0s;
+  -ms-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+.top-header .navbar .navbar-collapse ul li a.active::after {
+  width: 20px;
+  height: 20px;
+  content: "";
+  float: left;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: url(/assets/images/menu-arrow.png) no-repeat center;
+  border-radius: 10px;
+  transform: translateY(0%) rotate(140deg);
+  -webkit-transform: translateY(0%) rotate(140deg);
+  -o-transform: translateY(0%) rotate(140deg);
+  -ms-transform: translateY(0%) rotate(140deg);
+  -moz-transform: translateY(0%) rotate(140deg);
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -moz-transition: all 0.5s ease-in-out 0s;
+  -ms-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+.top-header .navbar .navbar-collapse ul li a:hover {
+  background: #00cb86;
+  color: #ffffff;
+}
+
+.top-header.fixed-menu {
+  width: 100%;
+  position: fixed;
+  box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.06);
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  background: #fff;
+  z-index: 20;
+}
+
+.navbar-toggler {
+  border: 1px solid #57cef8;
+  border-radius: 0;
+  margin: 16px 15px;
+  padding: 10px 10px;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.navbar-toggler span {
+  background: #333333;
+  display: block;
+  width: 25px;
+  height: 2px;
+  margin: 0 auto;
+  margin-top: 0px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.navbar-toggler span + span {
+  margin-top: 5px;
+}
+
+.navbar-toggler:hover {
+  border: 1px solid #00cb86;
+}
+
+.navbar-toggler:hover span {
+  background: #00cb86;
+}

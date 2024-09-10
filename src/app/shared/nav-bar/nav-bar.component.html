@@ -1,0 +1,99 @@
+<!-- Start header -->
+<header id="header" class="top-header">
+  <nav class="navbar header-nav navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"
+        ><img src="assets/images/logo.png" alt="logo"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar-wd"
+        aria-controls="navbar-wd"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+        <ul class="navbar-nav">
+          <li>
+            <a
+              class="nav-link"
+              routerLink="/"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Inicio</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" routerLink="/about" routerLinkActive="active"
+              >Nosotros</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" routerLink="/contact" routerLinkActive="active"
+              >Contacto</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link"
+              routerLink="/appointment"
+              routerLinkActive="active"
+              >Citas</a
+            >
+          </li>
+
+          <li>
+            <a
+              class="nav-link"
+              routerLink="/appointment"
+              routerLinkActive="active"
+              >Examenes</a
+            >
+          </li>
+
+          <li>
+            <a
+              class="nav-link"
+              routerLink="/appointment"
+              routerLinkActive="active"
+              >Autorizaciones</a
+            >
+          </li>
+
+          <li>
+            <a
+              class="nav-link"
+              routerLink="/medical-record"
+              routerLinkActive="active"
+              >Historias</a
+            >
+          </li>
+
+          <li>
+            <a class="nav-link" routerLink="/login" routerLinkActive="active"
+              >Ingresar</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" routerLink="/register" routerLinkActive="active"
+              >Registarse</a
+            >
+          </li>
+
+          <li>
+            <a class="nav-link" routerLinkActive="active" (click)="logout()"
+              >Salir</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- End header -->

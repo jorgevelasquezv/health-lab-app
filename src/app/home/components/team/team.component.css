@@ -1,0 +1,111 @@
+/*------------------------------------------------------------------
+    Team
+-------------------------------------------------------------------*/
+
+.team-box{
+	padding: 70px 0px;
+}
+
+.our-team{
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.our-team:before,
+.our-team:after{
+    content: "";
+    width: 130px;
+    height: 130px;
+    background: #12557f;
+    position: absolute;
+	border-radius: 50%;
+    z-index: -1;
+}
+.our-team:before{
+    top: 0px;
+    left: 0;
+}
+.our-team:after{
+    bottom: 0px;
+    right: 0;
+}
+.our-team .pic{
+    margin: 8px;
+    position: relative;
+    border: 3px solid #00cb86;
+    transition: all 0.5s ease 0s;
+}
+.our-team:hover .pic{
+    border-color: #12557f;
+}
+.our-team .pic:after{
+    content: "";
+    width: 100%;
+    height: 0;
+    background: #00cb86;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transform-origin: 0 0 0;
+    transition: all 0.5s ease 0s;
+}
+.our-team:hover .pic:after{
+    height: 100%;
+    opacity: 0.85;
+}
+.our-team img{
+    width: 100%;
+    height: auto;
+}
+.our-team .team-content{
+    width: 100%;
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    transition: all 0.5s ease 0.2s;
+}
+.our-team:hover .team-content{
+    bottom: 38%;
+}
+.our-team .title{
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: capitalize;
+    margin: 0px;
+}
+.our-team .post{
+    font-size: 14px;
+    color: #fff;
+    line-height: 26px;
+    text-transform: capitalize;
+}
+.our-team .social{
+    padding: 0;
+    margin: 40px 0 0 0;
+    list-style: none;
+}
+.our-team .social li{
+    display: inline-block;
+}
+.our-team .social li a{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    font-size: 18px;
+    color: #fff;
+    margin: 0 7px;
+    transition: all 0.5s ease 0s;
+}
+.our-team .social li a:hover{
+    background: #fff;
+    color: #12557f;
+}
+@media only screen and (max-width: 990px){
+    .our-team{ margin-bottom: 30px; }
+}

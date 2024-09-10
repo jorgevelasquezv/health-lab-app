@@ -1,0 +1,16 @@
+<section class="text-center justify-content-center align-items-center" >
+  <div>
+    <h3 class="title">Medical Record</h3>
+    <button class="new-btn-d btn-download" (click)="downloadPdf()">
+      Download
+    </button>
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <pdf-viewer
+      [src]="pdfSrc"
+      [render-text]="true"
+      [original-size]="false"
+      style="width: 1000px; height: 800px"
+    ></pdf-viewer>
+  </div>
+</section>
