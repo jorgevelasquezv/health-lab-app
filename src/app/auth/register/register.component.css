@@ -11,3 +11,58 @@ top: 13px;
 .form-title{
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
+
+.btn-common {
+  background-color: #00cb86;
+  height: 45px;
+  line-height: 45px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  padding: 0 15px;
+  border: 0;
+  outline: 0;
+  text-transform: uppercase;
+  border-radius: 0px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-common:hover {
+  background-color: #528780;
+}
+
+
+.btn-reset {
+  background-color: #12557f;
+  height: 45px;
+  line-height: 45px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  padding: 0 15px;
+  border: 0;
+  outline: 0;
+  text-transform: uppercase;
+  border-radius: 0px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-reset:hover {
+  background-color: #3a6f68;
+}
+
+.text-red {
+  color: red;
+}
+
+.mt-n3 {
+  margin-top: -0.75rem;
+}

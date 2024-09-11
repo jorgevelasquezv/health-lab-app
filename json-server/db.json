@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "b7fb4cd1-0708-41a5-a128-2976ccc427e5",
+      "name": "Pablo",
+      "lastName": "Cabal",
+      "gender": "male",
+      "address": "Calle 6 #4-21",
+      "country": "Colombia",
+      "city": "Cali",
+      "identificationType": "cc",
+      "identificationNumber": "895342716",
+      "email": "pcabal@mail.com",
+      "password": "123456789",
+      "role": "user",
+      "isActive": true
+    }
+  ]
+}

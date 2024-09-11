@@ -16,7 +16,11 @@
               />
             </div>
             <div class="col-xl-6">
-              <div class="card-body p-md-5 text-black">
+              <form
+                class="card-body p-md-5 text-black"
+                [formGroup]="registerForm"
+                (ngSubmit)="register()"
+              >
                 <h3 class="mb-5 text-uppercase form-title">
                   Formulario de registro
                 </h3>
@@ -28,11 +32,17 @@
                         type="text"
                         id="form3Example1m"
                         class="form-control form-control-lg"
+                        formControlName="name"
                       />
                       <label class="form-label" for="form3Example1m"
                         >Nombre</label
                       >
                     </div>
+                    @if (nameInvalid) {
+                    <span class="text-red"
+                      >Nombre debe tener minimo 3 caracteres</span
+                    >
+                    }
                   </div>
                   <div class="col-md-6 mb-4">
                     <div data-mdb-input-init class="form-outline">
@@ -40,11 +50,17 @@
                         type="text"
                         id="form3Example1n"
                         class="form-control form-control-lg"
+                        formControlName="lastName"
                       />
                       <label class="form-label" for="form3Example1n"
                         >Apellidos</label
                       >
                     </div>
+                    @if (lastNameInvalid) {
+                    <span class="text-red"
+                      >Apellido debe tener minimo 3 caracteres</span
+                    >
+                    }
                   </div>
                 </div>
 
@@ -57,9 +73,10 @@
                     <input
                       class="form-check-input"
                       type="radio"
-                      name="inlineRadioOptions"
+                      name="gender"
                       id="femaleGender"
-                      value="option1"
+                      value="famale"
+                      formGroupName="gender"
                     />
                     <label class="form-check-label" for="femaleGender"
                       >Femenino</label
@@ -70,9 +87,10 @@
                     <input
                       class="form-check-input"
                       type="radio"
-                      name="inlineRadioOptions"
+                      name="gender"
                       id="maleGender"
-                      value="option2"
+                      value="male"
+                      formControlName="gender"
                     />
                     <label class="form-check-label" for="maleGender"
                       >Masculino</label
@@ -83,14 +101,18 @@
                     <input
                       class="form-check-input"
                       type="radio"
-                      name="inlineRadioOptions"
+                      name="gender"
                       id="otherGender"
-                      value="option3"
+                      value="other"
+                      formControlName="gender"
                     />
                     <label class="form-check-label" for="otherGender"
                       >Otro</label
                     >
                   </div>
+                  @if (genderInvalid) {
+                  <span class="text-red">Debe seleccionar un genero</span>
+                  }
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
@@ -98,39 +120,74 @@
                     type="text"
                     id="form3Example8"
                     class="form-control form-control-lg"
+                    formControlName="address"
                   />
-                  <label class="form-label" for="form3Example8">Address</label>
+                  <label class="form-label" for="form3Example8"
+                    >Dirección</label
+                  >
+                  @if (addressInvalid) {
+                  <span class="text-red ml-3"
+                    >Dirección debe tener minimo 5 caracteres</span
+                  >
+                  }
                 </div>
 
                 <div class="row">
                   <div class="col-md-6 mb-4">
-                    <select data-mdb-select-init class="custom-select">
-                      <option value="1">Pais</option>
-                      <option value="2">Colombia</option>
-                      <option value="3">Ecuador</option>
-                      <option value="4">Perú</option>
+                    <select
+                      data-mdb-select-init
+                      class="custom-select"
+                      formControlName="country"
+                    >
+                      <option value="">Pais</option>
+                      <option value="Colombia">Colombia</option>
+                      <option value="Ecuador">Ecuador</option>
+                      <option value="Perú">Perú</option>
                     </select>
+                    @if (countryInvalid) {
+                    <span class="text-red">Debe seleccionar un Pais</span>
+                    }
                   </div>
                   <div class="col-md-6 mb-4">
-                    <select data-mdb-select-init class="custom-select">
-                      <option value="1">Ciudad</option>
-                      <option value="2">Cali</option>
-                      <option value="3">Medellin</option>
-                      <option value="4">Bogotá</option>
-                      <option value="5">Pereira</option>
-                      <option value="6">Armenia</option>
+                    <select
+                      data-mdb-select-init
+                      class="custom-select"
+                      formControlName="city"
+                    >
+                      <option value="">Ciudad</option>
+                      <option value="Cali">Cali</option>
+                      <option value="Medellin">Medellin</option>
+                      <option value="Bogotá">Bogotá</option>
+                      <option value="Pereira">Pereira</option>
+                      <option value="Armenia">Armenia</option>
                     </select>
+                    @if (cityInvalid) {
+                    <span class="text-red">Debe seleccionar una Ciudad</span>
+                    }
                   </div>
                 </div>
 
                 <div class="form-outline">
-                  <select data-mdb-select-init class="custom-select my-4">
-                    <option value="1">Tipo de Identificación</option>
-                    <option value="2">Cedula de Ciudadania</option>
-                    <option value="3">Cedula de Extranjeria</option>
-                    <option value="4">Tarjeta de Identidad</option>
-                    <option value="5">Registro Civil</option>
+                  <select
+                    data-mdb-select-init
+                    [className]="
+                      identificationTypeInvalid
+                        ? 'custom-select mt-4'
+                        : 'custom-select my-4'
+                    "
+                    formControlName="identificationType"
+                  >
+                    <option value="">Tipo de Identificación</option>
+                    <option value="cc">Cedula de Ciudadania</option>
+                    <option value="ce">Cedula de Extranjeria</option>
+                    <option value="ti">Tarjeta de Identidad</option>
+                    <option value="reg">Registro Civil</option>
                   </select>
+                  @if (identificationTypeInvalid) {
+                  <span class="text-red mt-n3"
+                    >Debe seleccionar un tipo de identificación</span
+                  >
+                  }
                 </div>
 
                 <div data-mdb-input-init class="form-outline my-4">
@@ -138,10 +195,17 @@
                     type="text"
                     id="form3Example90"
                     class="form-control form-control-lg"
+                    formControlName="identificationNumber"
                   />
                   <label class="form-label" for="form3Example90"
                     >Numero de Identificación</label
                   >
+                  @if (identificationNumberInvalid) {
+                  <span class="text-red ml-3"
+                    >Numero de identificación debe tener minimo 5
+                    caracteres</span
+                  >
+                  }
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
@@ -149,8 +213,46 @@
                     type="email"
                     id="form3Example97"
                     class="form-control form-control-lg"
+                    formControlName="email"
                   />
                   <label class="form-label" for="form3Example97">Email </label>
+                  @if (emailInvalid) {
+                  <span class="text-red ml-3">Email invalido</span>
+                  }
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input
+                    type="password"
+                    id="form3Example98"
+                    class="form-control form-control-lg"
+                    formControlName="password"
+                  />
+                  <label class="form-label" for="form3Example97"
+                    >Contraseña
+                  </label>
+                  @if (passwordInvalid) {
+                  <span class="text-red ml-3"
+                    >Contraseña debe tener minimo 6 caracteres</span
+                  >
+                  }
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input
+                    type="password"
+                    id="form3Example99"
+                    class="form-control form-control-lg"
+                    formControlName="confirmPassword"
+                  />
+                  <label class="form-label" for="form3Example97"
+                    >Confirmar Contraseña
+                  </label>
+                  @if (confirmPasswordInvalid) {
+                  <span class="text-red ml-3"
+                    >Las contraseñas no coinciden</span
+                  >
+                  }
                 </div>
 
                 <div class="d-flex justify-content-end pt-3">
@@ -158,20 +260,21 @@
                     type="button"
                     data-mdb-button-init
                     data-mdb-ripple-init
-                    class="btn btn-light btn-lg mr-2"
+                    class="btn btn-reset btn-lg mr-2"
                   >
                     Limpiar todo
                   </button>
                   <button
-                    type="button"
+                    type="submit"
+                    [disabled]="!registerForm.valid"
                     data-mdb-button-init
                     data-mdb-ripple-init
-                    class="btn btn-warning btn-lg ml-2"
+                    class="btn btn-common btn-lg ml-2"
                   >
                     Registarse
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

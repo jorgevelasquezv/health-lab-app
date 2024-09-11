@@ -1,0 +1,21 @@
+{
+  "name": "json-server",
+  "version": "1.0.0",
+  "description": "API Backend Health-Lab",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server db.json --port 8090",
+    "dev": "json-server --watch db.json --port 8090",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "API",
+    "Json",
+    "Server"
+  ],
+  "author": "jorgeluisvelasquezv@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "file:"
+  }
+}

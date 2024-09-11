@@ -9,16 +9,19 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { catchError, map, Observable, of, Subscription, switchMap } from 'rxjs';
+import { v4 as uuidv4 } from 'uuid';
 import { AuthStatus } from '../../domain/enums/auth-status.enum';
 import { User } from '../../domain/models/user.model';
 import { Role } from '../../domain/enums/role.enum';
 import { UserService } from './user.service';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService implements OnDestroy {
+  private API_URL: string = environment.apiUrl;
   private http: HttpClient = inject(HttpClient);
   private userService: UserService = inject(UserService);
   private verifiUserLocalStorageSubscription: Subscription = new Subscription();
@@ -60,7 +63,7 @@ export class AuthService implements OnDestroy {
 
   public login(email: string, password: string): Observable<User> {
     return this.http
-      .get<[User]>(`/users`, { params: { email, password } })
+      .get<[User]>(`${this.API_URL}/users`, { params: { email, password } })
       .pipe(map((users) => users[0]))
       .pipe(
         map((user) => {
@@ -81,12 +84,6 @@ export class AuthService implements OnDestroy {
     return true;
   }
 
-  public createUser(user: User): Observable<User> {
-    user.isActive = true;
-    if (!user.role) user.role = Role.User;
-    return this.http.post<User>(`/users`, user);
-  }
-
   public register(user: User): Observable<User> {
     user.role = Role.User;
     return this.findUserByEmail(user.email)
@@ -104,12 +101,21 @@ export class AuthService implements OnDestroy {
       );
   }
 
+  private createUser(user: User): Observable<User> {
+    user.id = uuidv4();
+    user.isActive = true;
+    if (!user.role) user.role = Role.User;
+    return this.http.post<User>(`${this.API_URL}/users`, user);
+  }
+
   private findUserByEmail(email: string): Observable<[User]> {
-    return this.http.get<[User]>(`/users`, { params: { email } });
+    return this.http.get<[User]>(`${this.API_URL}/users`, {
+      params: { email },
+    });
   }
 
   public findUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`/users`).pipe(
+    return this.http.get<User[]>(`${this.API_URL}/users`).pipe(
       map((users) => {
         this._users.set(users);
         return users;
@@ -123,7 +129,7 @@ export class AuthService implements OnDestroy {
 
   public findUserById(id: string): Observable<User> {
     return this.http
-      .get<[User]>(`/users/`, { params: { id } })
+      .get<[User]>(`${this.API_URL}/users/`, { params: { id } })
       .pipe(map((users) => users[0]))
       .pipe(
         map((user) => {
@@ -135,12 +141,12 @@ export class AuthService implements OnDestroy {
 
   public updtaeUser(user: User): Observable<User> {
     if (!user.id) throw new Error('Usuario no encontrado');
-    return this.http.put<User>(`/users/${user.id}`, user);
+    return this.http.put<User>(`${this.API_URL}/users/${user.id}`, user);
   }
 
   public deleteUser(user: User): Observable<User> {
     if (!user.id) throw new Error('Usuario no encontrado');
-    return this.http.delete<User>(`/users/${user.id}`);
+    return this.http.delete<User>(`${this.API_URL}/users/${user.id}`);
   }
 
   public logout(): void {
