@@ -7,6 +7,10 @@
 	position: relative;
 }
 
+.text-red {
+  color: #ff0000;
+}
+
 .well-block .well-title h2{
 	font-size: 32px;
 	font-weight: 600;

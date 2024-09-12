@@ -4,8 +4,10 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="title-box">
-          <h2>Appointment</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h2>Citas Medicas</h2>
+          <p>
+            Aqui podra solicitar su cita medica con el especialista requerido
+          </p>
         </div>
       </div>
     </div>
@@ -13,21 +15,27 @@
       <div class="col-lg-6 col-md-6">
         <div class="well-block">
           <div class="well-title">
-            <h2>Book an Appointment</h2>
+            <h2>Agendar una cita medica</h2>
           </div>
-          <form>
+          <form [formGroup]="appointmentForm" (ngSubmit)="makeAppointment()">
             <!-- Form start -->
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="control-label" for="name">Name</label>
+                  <label class="control-label" for="name">Nombre</label>
                   <input
                     id="name"
                     name="name"
                     type="text"
                     placeholder="Name"
                     class="form-control input-md"
+                    formControlName="name"
                   />
+                @if (confirmNameInvalid) {
+                <span class="text-red"
+                  >El nombre debe tener minimo 3 caracteres</span
+                >
+                }
                 </div>
               </div>
               <!-- Text input-->
@@ -40,63 +48,87 @@
                     type="text"
                     placeholder="E-Mail"
                     class="form-control input-md"
+                    formControlName="email"
                   />
+                @if (confirmEmailInvalid) {
+                <span class="text-red">No es un Email valido</span>
+                }
                 </div>
               </div>
-              <!-- Text input-->
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label" for="date">Preferred Date</label>
-                  <input
-                    id="date"
-                    name="date"
-                    type="text"
-                    placeholder="Preferred Date"
-                    class="form-control input-md"
-                  />
-                </div>
-              </div>
-              <!-- Select Basic -->
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label" for="time">Preferred Time</label>
-                  <select id="time" name="time" class="form-control">
-                    <option value="8:00 to 9:00">8:00 to 9:00</option>
-                    <option value="9:00 to 10:00">9:00 to 10:00</option>
-                    <option value="10:00 to 1:00">10:00 to 1:00</option>
-                  </select>
-                </div>
-              </div>
-              <!-- Select Basic -->
+
               <div class="col-md-12">
                 <div class="form-group">
                   <label class="control-label" for="appointmentfor"
-                    >Department</label
+                    >Especialista</label
                   >
                   <select
                     id="appointmentfor"
                     name="appointmentfor"
                     class="form-control"
+                    formControlName="appointmentfor"
                   >
-                    <option value="Choose Department">Choose Department</option>
-                    <option value="Gynacology">Gynacology</option>
-                    <option value="Dermatologist">Dermatologist</option>
-                    <option value="Orthology">Orthology</option>
-                    <option value="Anesthesiology">Anesthesiology</option>
-                    <option value="Ayurvedic">Ayurvedic</option>
+                    <option value="">Seleccione una especialidad</option>
+                    <option value="Gynacology">Ginecologia</option>
+                    <option value="Dermatologist">Dermatoligia</option>
+                    <option value="Orthology">Fonología</option>
+                    <option value="Anesthesiology">Anestesiología</option>
+                    <option value="Ayurvedic">Homeopatología</option>
+                    <option value="General">Medicina General</option>
                   </select>
+                @if (confirmAppointmentforInvalid) {
+                <span class="text-red"
+                  >Debe seleccionar una especialidad</span
+                >
+                }
                 </div>
               </div>
-              <!-- Button -->
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label" for="date"
+                    >Fecha de preferencia</label
+                  >
+                  <input
+                    id="date"
+                    name="date"
+                    type="date"
+                    placeholder="Preferred Date"
+                    class="form-control input-md"
+                    formControlName="date"
+                  />
+                @if (confirmDateInvalid) {
+                <span class="text-red">Debe seleccionar una fecha</span>
+                }
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label" for="time"
+                    >Hora de Preferencia</label
+                  >
+                   <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    class="form-control"
+                    formControlName="time"
+                  />
+                @if (confirmTimeInvalid) {
+                <span class="text-red">Debe seleccionar una hora</span>
+                }
+                </div>
+              </div>
+
               <div class="col-md-12">
                 <div class="form-group">
                   <button
+                    type="submit"
                     id="singlebutton"
                     name="singlebutton"
-                    class="new-btn-d br-2"
-                    (click)="makeAppointment()"
+                    class="new-btn-d br-2 mt-3"
                   >
-                    Make An Appointment
+                    Pedir Ahora
                   </button>
                 </div>
               </div>
@@ -108,33 +140,34 @@
       <div class="col-lg-6 col-md-6">
         <div class="well-block">
           <div class="well-title">
-            <h2>Why Appointment with Us</h2>
+            <h2>¿Por que solicitar una cita con nosotros?</h2>
           </div>
           <div class="feature-block">
             <div class="feature feature-blurb-text">
-              <h4 class="feature-title">24/7 Hours Available</h4>
+              <h4 class="feature-title">
+                Disponibilidad 24 horas, 7 días a la semana
+              </h4>
               <div class="feature-content">
                 <p>
-                  Integer nec nisi sed mi hendrerit mattis. Vestibulum mi nunc,
-                  ultricies quis vehicula et, iaculis in magnestibulum.
+                  Siempre dispuestos a cuidar de su salud, con la mejor atención
                 </p>
               </div>
             </div>
             <div class="feature feature-blurb-text">
-              <h4 class="feature-title">Experienced Staff Available</h4>
+              <h4 class="feature-title">Personal experto a su disposición</h4>
               <div class="feature-content">
                 <p>
-                  Aliquam sit amet mi eu libero fermentum bibendum pulvinar a
-                  turpis. Vestibulum quis feugiat risus.
+                  Nuestro personal esta altamente capacitado para atender sus
+                  necesidades
                 </p>
               </div>
             </div>
             <div class="feature feature-blurb-text">
-              <h4 class="feature-title">Low Price & Fees</h4>
+              <h4 class="feature-title">Precios justos y cuotas bajas</h4>
               <div class="feature-content">
                 <p>
-                  Praesent eu sollicitudin nunc. Cras malesuada vel nisi
-                  consequat pretium. Integer auctor elementum nulla suscipit in.
+                  Nuestros precios son accesibles para que pueda cuidar de su
+                  salud sin preocupaciones
                 </p>
               </div>
             </div>
