@@ -13,7 +13,41 @@
       "email": "pcabal@mail.com",
       "password": "123456789",
       "role": "user",
+      "idMedicalRecord": "415bbb8c-0027-46c1-a0be-d80eee8a5163",
       "isActive": true
+    }
+  ],
+  "medicalRecords": [
+    {
+      "id": "415bbb8c-0027-46c1-a0be-d80eee8a5163",
+      "observations": "Paciente con fiebre",
+      "path" : "p-cabal_medical-record.pdf",
+      "exams": [
+        {
+          "id": "811b7bb7-95d1-4465-befd-a7ee522819a7",
+          "name": "Análisis de sangre",
+          "type": "Sangre",
+          "result": "Normal",
+          "comments": "Todo está bien",
+          "date": "2021-09-01T00:00:00.000Z"
+        },
+        {
+          "id": "1b85338f-37be-4f32-b1d7-6ad783749caa",
+          "name": "Radiografía",
+          "type": "Radiología",
+          "result": "Normal",
+          "comments": "Todo está bien",
+          "date": "2021-09-01T00:00:00.000Z"
+        },
+        {
+          "id": "353bb1f3-87d6-4443-aba8-ada1560c43ca",
+          "name": "Resonancia Magnética",
+          "type": "Radiología",
+          "result": "Normal",
+          "comments": "Todo está bien",
+          "date": "2021-09-01T00:00:00.000Z"
+        }
+      ]
     }
   ]
 }

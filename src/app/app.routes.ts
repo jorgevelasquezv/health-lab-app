@@ -25,6 +25,10 @@ export const routes: Routes = [
     canActivate: [isAuthenticatedGuard],
   },
   {
+    path: 'exams',
+    loadComponent: () => import('./exams/exams.component'),
+  },
+  {
     path: 'login',
     loadComponent: () => import('./auth/login/login.component'),
   },

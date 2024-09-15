@@ -1,0 +1,49 @@
+.btn-download {
+  background: #ffffff;
+  border-radius: 2px;
+  border: 2px solid #12557f;
+  color: #12557f;
+  display: inline-block;
+  letter-spacing: 1px;
+  line-height: 24px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 9px;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.btn-download::before {
+  background: rgba(18, 85, 127, 0.2);
+}
+
+.btn-download:hover {
+  color: #ffffff;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+.container {
+  margin-top: 20px;
+}
+
+.title-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}

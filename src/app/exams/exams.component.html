@@ -1,0 +1,49 @@
+<div class="container min-vh-100 d-flex flex-column">
+  <div class="row">
+    <div class="col-lg-12 mb-5">
+      <div class="title-box">
+        <h2>Resultados de Exámenes Médicos</h2>
+        <p>Aquí puede ver los resultados de sus exámenes médicos.</p>
+      </div>
+    </div>
+  </div>
+  @if(exams().length > 0){
+  <div class="row flex-grow-1">
+    <div class="col-lg-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre del Examen</th>
+            <th>Fecha</th>
+            <th>Resultado</th>
+            <th>Comentarios</th>
+            <th>Descargar</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(exam of exams(); track $index){
+          <tr>
+            <td>{{ exam.name }}</td>
+            <td>{{ exam.date | date }}</td>
+            <td>{{ exam.result }}</td>
+            <td>{{ exam.comments }}</td>
+            <td>
+              <button
+                (click)="downloadExam(exam)"
+                class="new-btn-d btn-download"
+              >
+                <i class="fa fa-download"></i> Descargar
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+  }@else{
+  <div class="col-lg-12">
+    <p>No hay resultados de exámenes disponibles.</p>
+  </div>
+  }
+</div>

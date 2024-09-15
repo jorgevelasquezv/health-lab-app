@@ -12,6 +12,7 @@ export interface User {
   city: string;
   identificationType: IdentificationType;
   identificationNumber: string;
+  idMedicalRecord?: string;
   email: string;
   password: string;
   role?: Role;
