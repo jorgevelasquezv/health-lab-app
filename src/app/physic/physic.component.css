@@ -1,0 +1,104 @@
+.btn-confirm {
+  background: #00cb86;
+  border-radius: 2px;
+  border: 2px solid #12557f;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 24px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 9px;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+
+.btn-confirm::before {
+  background: rgba(18, 85, 127, 0.2);
+}
+
+.btn-confirm:hover {
+  background: #019b68;
+}
+
+.btn-add {
+  background: #d4c606;
+  border-radius: 2px;
+  border: 2px solid #12557f;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 24px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 9px;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+
+.btn-add::before {
+  background: rgba(18, 85, 127, 0.2);
+}
+
+.btn-add:hover {
+  background: #9e9403de;
+}
+
+.btn-delete {
+  background: #dd0909;
+  border-radius: 2px;
+  border: 2px solid #12557f;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 24px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 9px;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+
+.btn-delete::before {
+  background: rgba(18, 85, 127, 0.2);
+}
+
+.btn-delete:hover {
+  background: #b10707;
+}
+
+
+.container {
+  margin-top: 20px;
+}
+
+.title-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.text-red {
+  color: red;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.medication-group {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.btn-primary, .btn-secondary, .btn-danger {
+  margin-top: 10px;
+  margin-right: 10px;
+}

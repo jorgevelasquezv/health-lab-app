@@ -29,6 +29,10 @@ export const routes: Routes = [
     loadComponent: () => import('./exams/exams.component'),
   },
   {
+    path: 'authorization',
+    loadComponent: () => import('./physic/physic.component'),
+  },
+  {
     path: 'login',
     loadComponent: () => import('./auth/login/login.component'),
   },
@@ -39,5 +43,5 @@ export const routes: Routes = [
   {
     path: '**',
     redirectTo: '/',
-  }
+  },
 ];

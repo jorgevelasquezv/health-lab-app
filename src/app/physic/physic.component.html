@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="title-box">
+        <h2>Solicitud de Autorización de Medicamentos</h2>
+        <p>Aquí puede solicitar la autorización de medicamentos.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <form [formGroup]="physicForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="patientName">Nombre del Paciente</label>
+          <input
+            id="patientName"
+            formControlName="patientName"
+            class="form-control"
+          />
+        </div>
+        <div formArrayName="medications">
+          @for(medication of medications.controls; track $index; let index =
+          $index){
+          <div [formGroupName]="index" class="medication-group">
+            <div class="form-group">
+              <label for="medication">Medicamento</label>
+              <input
+                id="medication"
+                formControlName="medication"
+                class="form-control"
+              />
+              @if (fieldInvalid(medication, 'medication')) {
+              <span class="text-red">El medicamento es requerido.</span>
+              }
+            </div>
+            <div class="form-group">
+              <label for="dosage">Dosis</label>
+              <input
+                id="dosage"
+                formControlName="dosage"
+                class="form-control"
+              />
+              @if(fieldInvalid(medication, 'dosage')) {
+              <span class="text-red"> La dosis es requerida. </span>
+              }
+            </div>
+            <div class="form-group">
+              <label for="reason">Razón</label>
+              <textarea
+                id="reason"
+                formControlName="reason"
+                class="form-control"
+              ></textarea>
+              @if(fieldInvalid(medication, 'reason')) {
+              <span class="text-red"> La razón es requerida. </span>
+              }
+            </div>
+            <button
+              type="button"
+              class="btn-delete"
+              (click)="removeMedication(index)"
+            >
+              Eliminar Medicamento
+            </button>
+          </div>
+          }
+        </div>
+        <button
+          type="button"
+          class="btn-add mr-3"
+          (click)="addMedication()"
+        >
+          Agregar Medicamento
+        </button>
+        <button type="submit" class="btn-confirm">
+          Solicitar Autorización
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
