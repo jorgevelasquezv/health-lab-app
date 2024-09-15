@@ -29,7 +29,12 @@
                 formControlName="medication"
                 class="form-control"
               />
-              @if (fieldInvalid(medication, 'medication')) {
+              @if(fieldMinLengthInvalid(medication, 'medication')){
+              <span class="text-red"
+                >Nombre de medicamento demasiado corto</span
+              >
+              }
+              @else if (fieldInvalid(medication, 'medication')) {
               <span class="text-red">El medicamento es requerido.</span>
               }
             </div>
@@ -40,7 +45,12 @@
                 formControlName="dosage"
                 class="form-control"
               />
-              @if(fieldInvalid(medication, 'dosage')) {
+              @if(fieldMinLengthInvalid(medication, 'dosage')){
+              <span class="text-red"
+                >Valor de dosis demasiado corto</span
+              >
+              }
+              @else if(fieldInvalid(medication, 'dosage')) {
               <span class="text-red"> La dosis es requerida. </span>
               }
             </div>
@@ -51,7 +61,12 @@
                 formControlName="reason"
                 class="form-control"
               ></textarea>
-              @if(fieldInvalid(medication, 'reason')) {
+              @if(fieldMinLengthInvalid(medication, 'reason')){
+              <span class="text-red"
+                >Razón demasiado corta</span
+              >
+              }
+              @else if(fieldInvalid(medication, 'reason')) {
               <span class="text-red"> La razón es requerida. </span>
               }
             </div>
@@ -65,11 +80,7 @@
           </div>
           }
         </div>
-        <button
-          type="button"
-          class="btn-add mr-3"
-          (click)="addMedication()"
-        >
+        <button type="button" class="btn-add mr-3" (click)="addMedication()">
           Agregar Medicamento
         </button>
         <button type="submit" class="btn-confirm">

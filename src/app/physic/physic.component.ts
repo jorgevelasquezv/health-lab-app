@@ -68,6 +68,12 @@ export default class PhysicComponent implements OnInit {
     return validField.invalid && validField.touched;
   }
 
+  public fieldMinLengthInvalid(field: AbstractControl<any, any>, name: string): boolean {
+    const validField: AbstractControl<any, any> | null = field.get(name);
+    if (!validField) return false;
+    return validField.errors?.["minlength"] && validField.touched;
+  }
+
   public onSubmit() {
     if (this.physicForm.invalid) {
       this.physicForm.markAllAsTouched();
