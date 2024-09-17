@@ -20,3 +20,7 @@
 .btn-common:hover {
   background-color: #528780;
 }
+
+.text-red {
+  color: red;
+}

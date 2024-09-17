@@ -45,4 +45,12 @@ export default class LoginComponent {
       });
     }
   }
+
+  public fieldInvalid(field: string): boolean {
+    const fieldForm = this.loginForm.get(field);
+    if (!fieldForm) {
+      return false;
+    }
+    return fieldForm.invalid && fieldForm.touched;
+  }
 }
