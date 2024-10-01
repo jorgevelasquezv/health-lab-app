@@ -1,0 +1,4 @@
+<button class="chat-button" (click)="toggleChat()">
+  <i class="fa fa-comments"></i>
+</button>
+<shared-chat-popup *ngIf="isChatOpen" (close)="toggleChat()"/>

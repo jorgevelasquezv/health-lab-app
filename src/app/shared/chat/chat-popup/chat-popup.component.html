@@ -1,0 +1,65 @@
+<div class="chat-popup">
+  <div class="chat-header">
+    <h3><img src="assets/images/logo.png" alt="logo"
+      />Chat</h3>
+    <button class="close-button" (click)="closeChat()">×</button>
+  </div>
+  <div class="chat-body">
+    <!-- Menú Inicial -->
+    <div *ngIf="!selectedOption">
+      <p>Bienvenido al chat de Health Lab. ¿En qué podemos ayudarte hoy?</p>
+      <ul>
+        <li (click)="selectOption('faq')">Preguntas Frecuentes</li>
+        <li (click)="selectOption('appointment')">Agendar Cita</li>
+        <li (click)="selectOption('services')">Información sobre Servicios</li>
+        <li (click)="selectOption('support')">Soporte Técnico</li>
+      </ul>
+    </div>
+
+    <!-- Preguntas Frecuentes -->
+    <div *ngIf="selectedOption === 'faq'">
+      <p><strong>Preguntas Frecuentes:</strong></p>
+      <ul>
+        <li>¿Cómo puedo agendar una cita?</li>
+        <li>¿Qué servicios ofrece Health Lab?</li>
+        <li>¿Cómo puedo contactar con atención al cliente?</li>
+      </ul>
+      <button class="btn" (click)="goBack()">Volver</button>
+    </div>
+
+    <!-- Agendar Cita -->
+    <div *ngIf="selectedOption === 'appointment'">
+      <p><strong>Agendar Cita:</strong></p>
+      <p>Por favor, proporcione su nombre y número de contacto para agendar una cita.</p>
+      <input type="text" placeholder="Nombre" />
+      <input type="text" placeholder="Número de Contacto" />
+      <button class="btn">Enviar</button>
+      <button class="btn" (click)="goBack()">Volver</button>
+    </div>
+
+    <!-- Información sobre Servicios -->
+    <div *ngIf="selectedOption === 'services'">
+      <p><strong>Información sobre Servicios:</strong></p>
+      <ul>
+        <li>Consultas Médicas</li>
+        <li>Exámenes de Laboratorio</li>
+        <li>Servicios de Urgencias</li>
+        <li>Rehabilitación</li>
+      </ul>
+      <button class="btn" (click)="goBack()">Volver</button>
+    </div>
+
+    <!-- Soporte Técnico -->
+    <div *ngIf="selectedOption === 'support'">
+      <p><strong>Soporte Técnico:</strong></p>
+      <p>Si tiene problemas técnicos, por favor describa su problema a continuación.</p>
+      <textarea class="input-field" placeholder="Describa su problema..."></textarea>
+      <button class="btn">Enviar</button>
+      <button class="btn" (click)="goBack()">Volver</button>
+    </div>
+  </div>
+  <div class="chat-footer" *ngIf="!selectedOption">
+    <input type="text" class="input-field" placeholder="Escribe un mensaje..." />
+    <button class="btn" >Enviar</button>
+  </div>
+</div>
